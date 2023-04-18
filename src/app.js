@@ -1,13 +1,23 @@
-const express = require('express')
+import express from 'express'
+
 const app = express()
-const port = 3000
+
+// mock
+const selecoes = [
+    {id: 1, nome: 'Brasil', grupo: 'G'},
+    {id: 2, nome: 'Argentina', grupo: 'G'},
+    {id: 3, nome: 'Alemanha', grupo: 'G'},
+    {id: 4, nome: 'França', grupo: 'G'},
+]
+
 
 // create default route
 app.get('/', (req, res) => {
-  res.send('Hello casa!')
+  res.send('Hello world!')
 })
 
-// listen on port 3000
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.get('/selecoes', (req, res) => {
+    res.send(selecoes)
+    })
+
+export default app
